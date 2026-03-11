@@ -324,14 +324,16 @@ def executar_automacao(notify=None):
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=HEADLESS,
-            channel="chromium",
-            args=[
-                "--disable-blink-features=AutomationControlled",
-                "--no-sandbox",
-                "--disable-dev-shm-usage",
-            ]
-        )
+    headless=HEADLESS,
+    args=[
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--no-zygote",
+        "--single-process",
+    ]
+)
 
         try:
             for i, usuario in enumerate(usuarios, start=1):
