@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ["python311", "glib", "nss", "nspr", "atk", "at-spi2-atk", "gtk3", "libdrm", "dbus", "alsa-lib", "libxkbcommon", "xorg.libX11", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXext", "xorg.libXfixes", "xorg.libXrandr", "xorg.libxcb", "xorg.libXi", "xorg.libXtst", "cups", "pango", "cairo", "expat", "mesa", "udev"]
+
+[phases.install]
+cmds = [
+  "pip install -r requirements.txt",
+  "python -m playwright install chromium"
+]
+
+[start]
+cmd = "python bot_discord.py"
