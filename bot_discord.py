@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 
 import discord
+from keep_alive import keep_alive
 from discord import app_commands
 from discord.ext import commands, tasks
 
@@ -732,5 +733,5 @@ async def agendar(interaction: discord.Interaction, horario: str, ativo: bool = 
             ephemeral=True
         )
 
-
+keep_alive()
 bot.run(DISCORD_BOT_TOKEN)
