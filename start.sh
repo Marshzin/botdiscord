@@ -1,0 +1,2 @@
+playwright install chromium
+python bot_discord.py

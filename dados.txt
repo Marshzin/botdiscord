@@ -1,0 +1,7 @@
+url=https://taskitos.cupiditys.lol/
+
+login=1102037539sp
+senha=Paiva23@
+
+login=1102377077sp
+senha=Paiva23@
