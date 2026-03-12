@@ -14,8 +14,6 @@ try:
 except Exception:
     FUSO = None
 
-from bot import executar_automacao
-
 
 DISCORD_BOT_TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 
