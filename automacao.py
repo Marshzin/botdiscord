@@ -3,7 +3,7 @@ from datetime import datetime
 from playwright.sync_api import sync_playwright
 
 
-HEADLESS = True
+HEADLESS = False
 
 
 def ler_dados(caminho="dados.txt"):
