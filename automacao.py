@@ -312,7 +312,7 @@ def executar_automacao(notify=None):
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=HEADLESS,
+            headless=False,
             args=[
                 "--no-sandbox",
                 "--disable-setuid-sandbox",
