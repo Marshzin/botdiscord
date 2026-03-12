@@ -91,6 +91,7 @@ def ler_notification_container(page):
 
 def eh_notificacao_sem_atividade(texto):
     texto = texto_limpo(texto).lower()
+
     return (
         ("nenhuma ativ" in texto and "encontr" in texto)
         or "nenhuma atividade encontrada" in texto
@@ -282,22 +283,10 @@ def montar_resumo(total, sucessos, falhas, sem_atividade, detalhes, inicio, fim)
 def criar_contexto(browser):
     context = browser.new_context(
         viewport={"width": 1366, "height": 900},
-        user_agent=(
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/122.0.0.0 Safari/537.36"
-        ),
-        locale="pt-BR",
-        timezone_id="America/Sao_Paulo"
+        locale="pt-BR"
     )
 
     page = context.new_page()
-
-    page.add_init_script("""
-        Object.defineProperty(navigator, 'webdriver', {
-            get: () => undefined
-        });
-    """)
 
     return context, page
 
@@ -323,13 +312,13 @@ def executar_automacao(notify=None):
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
-    headless=True,
-    args=[
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-        "--disable-dev-shm-usage",
-    ]
-)
+            headless=HEADLESS,
+            args=[
+                "--no-sandbox",
+                "--disable-setuid-sandbox",
+                "--disable-dev-shm-usage",
+            ]
+        )
 
         try:
             for i, usuario in enumerate(usuarios, start=1):
