@@ -3,7 +3,7 @@ from datetime import datetime
 from playwright.sync_api import sync_playwright
 
 
-HEADLESS = False
+HEADLESS = True
 
 
 def ler_dados(caminho="dados.txt"):
@@ -312,7 +312,7 @@ def executar_automacao(notify=None):
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=False,
+            headless=HEADLESS,
             args=[
                 "--no-sandbox",
                 "--disable-setuid-sandbox",
