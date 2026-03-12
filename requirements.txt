@@ -1,4 +1,4 @@
 discord.py
-playwright
+playwright==1.55.0
 tzdata
 flask
